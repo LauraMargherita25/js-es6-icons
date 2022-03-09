@@ -115,32 +115,49 @@ let arrIcons = [
 
 const eleIconsContainer = document.querySelector(".icons_container");
 
-arrIcons.forEach((objElement) => {
+function insertIcons(arrIconsArgument, eleIconsContainerArgument) {
 	
-	const eleBox = document.createElement("div");
-	eleBox.classList.add("box");
-	eleBox.innerHTML = `
-		<i class="${objElement.family} ${objElement.prefix}${objElement.name}" style="color: ${objElement.color}"></i>
-		<span>${objElement.name}</span>
-	`
-	eleIconsContainer.append(eleBox);
-	
-})
+	eleIconsContainerArgument.innerHTML = "";
 
-/* function insertIcons(iconsArray, iconsCreationContainer) {
-	iconsCreationContainer.innerHTML = "";
-  
-	//ciclo che passa tutte le icone
-	iconsArray.forEach((element) => {
-	  const div = document.createElement("div");
-	  div.classList.add("box");
-  
-	  div.innerHTML = `
-		<i class="${element.family} ${element.prefix}${element.name}" style="color: ${element.color}"></i>
-		<span>${element.name}</span>
-	  `;
-  
-	  iconsCreationContainer.append(div);
-	});
-}*/
+	arrIconsArgument.forEach((arrElement) => {
+		
+		const eleBox = document.createElement("div");
+		eleBox.classList.add("box");
+		eleBox.innerHTML = `
+			<i class="${arrElement.family} ${arrElement.prefix}${arrElement.name}" style="color: ${arrElement.color}"></i>
+			<span>${arrElement.name}</span>
+		`
+		eleIconsContainerArgument.append(eleBox);
+		
+	})
+}
+
+insertIcons(arrIcons, eleIconsContainer);
+
+
+
+const eleIconsTypeSelector = document.getElementById("icons_type_selector");
+
+eleIconsTypeSelector.addEventListener("change", function () {
+	
+	const eleIconsTypeSelected = this.value;
+	let arrFilteredIcons = []
+
+	if (eleIconsTypeSelected != "all") {
+		
+		arrFilteredIcons = arrIcons.filter(arrElement =>{
+	
+			if (arrElement.type == eleIconsTypeSelected) {
+				return true; 
+			}
+		});
+		
+		insertIcons(arrFilteredIcons, eleIconsContainer);
+
+	} else {
+		insertIcons(arrIcons, eleIconsContainer);
+		console.log("ciao")
+	}
+});
+
 

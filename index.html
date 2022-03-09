@@ -13,18 +13,34 @@
 </head>
 <body>
     <div class="container">
-        
-        <label for="icons_type_selector">FILTRA PER TIPO</label>
-        <select title="icons_type_selector" name="icons_type_selector" id="icons_type_selector">
-            <option value="">all</option>
-            <option value="animal">animal</option>
-            <option value="vegetable">vegetable</option>
-            <option value="user">user</option>
-        </select>
 
-        <div class="icons_container">
+        <!-- header -->
+        <header>
+            <!-- logo -->
+            <div class="header_top">
+              <h1>FontIcons</h1>
+            </div>
+
+            <!-- select type icons -->
+            <div class="header_bottom">
+                
+                <label for="icons_type_selector">FILTRA PER TIPO</label>
+                <select title="icons_type_selector" name="icons_type_selector" id="icons_type_selector">
+                    <option value="">all</option>
+                    <option value="animal">animal</option>
+                    <option value="vegetable">vegetable</option>
+                    <option value="user">user</option>
+                </select>
+
+            </div>
+        </header>
+        
+        <!-- main -->
+        <main>
             
-        </div>
+            <div class="icons_container"></div>
+
+        </main>
     </div>
     <!-- script -->
     <script src="js/data.js"></script>

@@ -1,15 +1,70 @@
+/* general */
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
-.icons_container{
-    display: flex;
-    flex-wrap: wrap;
+:root {
+    --color-blue: #2ba7d8;
 }
 
-.box{
+
+
+
+
+
+.container {
+    height: 100vh;
+    font-family: sans-serif;
+    background-color: #eee;
+}
+
+/* header */
+.header_top{
+    background-color: #fff;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+    color: var(--color-blue);
+}
+
+.header_top h1 {
+    margin-top: 0;
+    margin-bottom: 0;
+    letter-spacing: 1px;
+}
+
+
+
+.header_bottom {
+    background-color: var(--color-blue);
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+
+/* main */
+main {
+    width: 90vw;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+}
+
+.icons_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: -3rem;
+    margin-left: -3rem;
+}
+
+.icons_container .box {
     width: 240px;
     display: flex;
     flex-direction: column;
@@ -22,3 +77,29 @@
     border-radius: 8px;
     box-shadow: 1px 1px 5px 0px #6b6b6b;
 }
+
+.icons_container .box > i {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.icons_container .box > span {
+    text-transform: uppercase;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
