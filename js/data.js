@@ -1,4 +1,4 @@
-[
+let arrIcons = [
 	{
 		name: 'cat',
 		prefix: 'fa-',
@@ -112,3 +112,35 @@
 		color: 'blue'
 	}
 ];
+
+const eleIconsContainer = document.querySelector(".icons_container");
+
+arrIcons.forEach((objElement) => {
+	
+	const eleBox = document.createElement("div");
+	eleBox.classList.add("box");
+	eleBox.innerHTML = `
+		<i class="${objElement.family} ${objElement.prefix}${objElement.name}" style="color: ${objElement.color}"></i>
+		<span>${objElement.name}</span>
+	`
+	eleIconsContainer.append(eleBox);
+	
+})
+
+/* function insertIcons(iconsArray, iconsCreationContainer) {
+	iconsCreationContainer.innerHTML = "";
+  
+	//ciclo che passa tutte le icone
+	iconsArray.forEach((element) => {
+	  const div = document.createElement("div");
+	  div.classList.add("box");
+  
+	  div.innerHTML = `
+		<i class="${element.family} ${element.prefix}${element.name}" style="color: ${element.color}"></i>
+		<span>${element.name}</span>
+	  `;
+  
+	  iconsCreationContainer.append(div);
+	});
+}*/
+
