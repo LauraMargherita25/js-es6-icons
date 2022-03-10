@@ -12,10 +12,12 @@
 
 
 
-
+body{
+    background-color: #eee;
+}
 
 .container {
-    height: 100vh;
+    height: 100%;
     font-family: sans-serif;
     background-color: #eee;
 }
@@ -83,7 +85,7 @@ main {
     margin-bottom: 1rem;
 }
 
-.icons_container .box > span {
+.icons_container .box > p {
     text-transform: uppercase;
 }
 

@@ -2,7 +2,7 @@ let arrIcons = [
 	{
 		name: 'cat',
 		prefix: 'fa-',
-		type: 'animal',
+		type: 'alien',
 		family: 'fas',
 		color: 'orange'
 	},
@@ -113,19 +113,31 @@ let arrIcons = [
 	}
 ];
 
+
 const eleIconsContainer = document.querySelector(".icons_container");
 
+// cambia colori
+arrIcons.forEach((objIcon) => objIcon.color = getRndColor());
+
+
+
+
+
+
+
+// ciclo per appendere tutte le icone
 function insertIcons(arrIconsArgument, eleIconsContainerArgument) {
 	
 	eleIconsContainerArgument.innerHTML = "";
-
+	
+	// appendo l'elemento box
 	arrIconsArgument.forEach((arrElement) => {
 		
 		const eleBox = document.createElement("div");
 		eleBox.classList.add("box");
 		eleBox.innerHTML = `
 			<i class="${arrElement.family} ${arrElement.prefix}${arrElement.name}" style="color: ${arrElement.color}"></i>
-			<span>${arrElement.name}</span>
+			<p>${arrElement.name}</p>
 		`
 		eleIconsContainerArgument.append(eleBox);
 		
@@ -156,8 +168,51 @@ eleIconsTypeSelector.addEventListener("change", function () {
 
 	} else {
 		insertIcons(arrIcons, eleIconsContainer);
-		console.log("ciao")
+	}
+	
+});
+
+
+
+
+// cambia colori
+
+function getRndColor() {
+	
+	const strColorChars = "0123456789ABCDEF"
+	let hexColor = "#";
+	
+	for (let i = 0; i < 6; i++) {
+		
+		hexColor += strColorChars[getRndBetween(0, 15)];		
+	}
+	
+	return hexColor;
+}
+
+function getRndBetween(min, max){
+	return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+
+
+// popola categorie
+const arrCategorie = [];
+
+// trovo le categorie
+arrIcons.forEach((objIcon) => {
+	
+	if(!arrCategorie.includes(objIcon.type)){
+		arrCategorie.push(objIcon.type);
 	}
 });
+
+// popolo il select con le categorie trovate
+arrCategorie.forEach(categoria => {
+	const eleOption = document.createElement("option");
+	eleOption.value = categoria;
+	eleOption.innerHTML = categoria;
+	eleIconsTypeSelector.append(eleOption);
+})
+
 
 
